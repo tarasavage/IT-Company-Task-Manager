@@ -17,7 +17,11 @@ class TaskType(models.Model):
 
 
 class Worker(AbstractUser):
-    position = models.ForeignKey(to=Position, on_delete=models.CASCADE)
+    position = models.ForeignKey(
+        to=Position,
+        on_delete=models.CASCADE,
+        default=1,
+    )
 
     def __str__(self) -> str:
         return f"{self.position} {self.first_name} {self.last_name}"
